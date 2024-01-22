@@ -1645,7 +1645,45 @@ p1 {
   
 /*   *** Media Query Starts ***   */
 
-/*   === Screen Size 1100px or Smaller  ===   */
+/*   === Screen Size 1500px or Smaller  ===   */
+
+/* Media Query for Screens Size of 1500px */
+@media (min-width: 1500px) {
+    /* Adjust margin for menu items in the navbar */
+    .navbar ul.nav-links li {
+        margin: 0 20px;
+    }
+
+    /* Customize the width of service boxes in the Services Section */
+    .services-container .service-box {
+        flex-basis: 25%; /* Adjust as needed */
+    }
+
+    /* Add specific styles for screens with a size of 1500px */
+    .custom-class {
+        color: #007bff; /* Change color as needed */
+        font-size: 18px; /* Change font size as needed */
+        /* Add any other styles as needed */
+    }
+
+    /* Example: Increase the font size of the navbar links */
+    .navbar ul.nav-links li a {
+        font-size: 20px;
+    }
+
+    /* Example: Increase the size of the logo */
+    .navbar .logo img {
+        width: 60px; /* Adjust as needed */
+        height: auto;
+    }
+
+    /* Example: Increase the size of the contact button */
+    .contact-btn {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
 @media(max-width: 1100px){
 	/* Home Section */
 	.navbar ul.nav-links li{
