@@ -236,14 +236,60 @@
                                 <label for="" class="mb-1 fw-medium">Email</label>
                                 <input type="email" class="form-control" placeholder="Enter Email">
                             </div>
+
                             <div class="mb-3 col-12">
-                                <label for="" class="mb-1 fw-medium">State</label>
-                                <input type="email" class="form-control" placeholder="Select State of Assignment">
+                                <label for="state" class="mb-1 fw-medium">State</label>
+                                <select id="state" name="state" class="form-control">
+                                    <option value="" selected disabled>Select State of Assignment</option>
+                                    <option value="Abia">Abia</option>
+                                    <option value="Adamawa">Adamawa</option>
+                                    <option value="Akwa Ibom">Akwa Ibom</option>
+                                    <option value="Anambra">Anambra</option>
+                                    <option value="Bauchi">Bauchi</option>
+                                    <option value="Bayelsa">Bayelsa</option>
+                                    <option value="Benue">Benue</option>
+                                    <option value="Borno">Borno</option>
+                                    <option value="Cross River">Cross River</option>
+                                    <option value="Delta">Delta</option>
+                                    <option value="Ebonyi">Ebonyi</option>
+                                    <option value="Edo">Edo</option>
+                                    <option value="Ekiti">Ekiti</option>
+                                    <option value="Enugu">Enugu</option>
+                                    <option value="FCT (Abuja)">FCT (Abuja)</option>
+                                    <option value="Gombe">Gombe</option>
+                                    <option value="Imo">Imo</option>
+                                    <option value="Jigawa">Jigawa</option>
+                                    <option value="Kaduna">Kaduna</option>
+                                    <option value="Kano">Kano</option>
+                                    <option value="Katsina">Katsina</option>
+                                    <option value="Kebbi">Kebbi</option>
+                                    <option value="Kogi">Kogi</option>
+                                    <option value="Kwara">Kwara</option>
+                                    <option value="Lagos">Lagos</option>
+                                    <option value="Nasarawa">Nasarawa</option>
+                                    <option value="Niger">Niger</option>
+                                    <option value="Ogun">Ogun</option>
+                                    <option value="Ondo">Ondo</option>
+                                    <option value="Osun">Osun</option>
+                                    <option value="Oyo">Oyo</option>
+                                    <option value="Plateau">Plateau</option>
+                                    <option value="Rivers">Rivers</option>
+                                    <option value="Sokoto">Sokoto</option>
+                                    <option value="Taraba">Taraba</option>
+                                    <option value="Yobe">Yobe</option>
+                                    <option value="Zamfara">Zamfara</option>
+                                </select>
                             </div>
+                            
+
+                            
                             <div class="mb-3 col-12">
-                                <label for="" class="mb-1 fw-medium">LGA of Assignment</label>
-                                <input type="email" class="form-control" placeholder="Select LGA of Assignment">
+                                <label for="lga" class="mb-1 fw-medium">LGA of Assignment</label>
+                                <select id="lga" name="lga" class="form-control">
+                                    <option value="" selected disabled>Select LGA of Assignment</option>
+                                </select>
                             </div>
+
                             <div class="mb-3 col-12">
                                 <label for="" class="mb-1 fw-medium">File No.</label>
                                 <input type="email" class="form-control" placeholder="Enter File Number">
@@ -293,5 +339,34 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
+
+    <script>
+        function populateLGAs() {
+            var stateSelect = document.getElementById("state");
+            var lgaSelect = document.getElementById("lga");
+    
+            // Clear existing options
+            lgaSelect.innerHTML = '<option value="" selected disabled>Select LGA of Assignment</option>';
+    
+            // Define LGAs for each state (replace with actual data)
+            var lgas = {
+                "Abia": ["LGA1", "LGA2", "LGA3"],
+                "Adamawa": ["LGA4", "LGA5", "LGA6"],
+                // Add more states and corresponding LGAs
+            };
+    
+            var selectedState = stateSelect.value;
+    
+            // Populate LGAs based on the selected state
+            if (lgas[selectedState]) {
+                lgas[selectedState].forEach(function (lga) {
+                    var option = document.createElement("option");
+                    option.value = lga;
+                    option.textContent = lga;
+                    lgaSelect.appendChild(option);
+                });
+            }
+        }
+    </script>
 
 </html>
