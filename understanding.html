@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--  *****   Link To Custom CSS Style sheet   *****  -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400;500;600;700&display=swap" rel="stylesheet">
+
+	<!--  *****   Link To Font Awsome Icons   *****  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+	<!--   ***** Link To Magnific Popup CSS *****   -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"/>
+
+	<!--   ***** Links To OwlCarousel CSS *****   -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CENSUS DEPARTMENT</title>
+	<link rel="icon" href="images/npc.jpg" type="image/png">
+
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+</head>
+<body>
+<!--   *** Website Container Starts ***   -->
+<div class="Website-container">
+	
+<!--   *** Home Section Starts ***   -->
+<section class="home" id="home">
+	
+	<!--   === Navbar Starts ===   -->
+	<nav class="navbar">
+		<div class="logo">
+			<img src="images/npc.jpg">
+		</div>
+
+		<ul class="nav-links">
+			<li><a href="#home">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#directorate">Directorate</a></li>
+			<li><a href="#committees">Committees</a></li>
+			<li><a href="#testimonials">National Platform</a></li>
+		</ul>
+
+		<a href="mailto:ndefoafam@gmail.com" class="button-wrapper">
+			<button class="btn contact-btn">Email Contact</button>
+		</a>
+
+		<div class="menu-btn">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</div>
+	</nav>
+	<!--   === Navbar Ends ===   -->
+
+
+    <div>
+        <canvas id="pdfCanvas"></canvas>
+      </div>
+
+      <a href="assets/Understanding Census Questions.pdf">
+        <button class="btn hire-btn">Next</button>
+    </a>
+    
+
+<!--   *** Footer Section Starts ***   -->
+<section class="page-footer">
+	
+	<footer class="footer-contents">
+		<p>You Count, Be Counted | © Copyright 2024 | Created by <span>Census Department, National Population Commission</span> | All rights reserved.</p>
+	</footer>
+	
+</section>
+<!--   *** Footer Section Ends ***   -->
+
+
+
+</div>
+<!--   *** Website Container Ends ***   -->
+
+
+
+<script>
+    // Function to load and render the PDF file
+    function renderPDF(url, canvasContainer) {
+        // Using PDF.js library
+        pdfjsLib.getDocument(url).then(function(pdf) {
+            // Fetch the first page
+            pdf.getPage(1).then(function(page) {
+                var scale = 1.5;
+                var viewport = page.getViewport({ scale: scale });
+
+                // Prepare canvas using PDF page dimensions
+                var canvas = document.getElementById('pdfCanvas');
+                var context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Render PDF page into canvas context
+                var renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                page.render(renderContext);
+            });
+        });
+    }
+
+    // Call the function with the URL of your PDF file
+    renderPDF('Understanding Census Questions.pdf', 'pdfCanvas');
+</script>
+
+
+
+
+</body>
+</html>
