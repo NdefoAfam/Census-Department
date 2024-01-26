@@ -1575,6 +1575,16 @@ p1 {
 		margin-left: 0px;
 		margin-top: 6rem;
 	}
+	.about .about-image::before{
+	position: absolute;
+	content: '';
+	width: calc(104% - 15px);
+	height: calc(100% - 5px);
+	outline: 10px solid var(--secondary-heading);
+	top: 1px;
+	left: 1px;
+	z-index: 1;
+}
 	.about-desc .about-personal-info{
 		grid-template-columns: 1fr;
 		grid-gap: 10px 20px;
