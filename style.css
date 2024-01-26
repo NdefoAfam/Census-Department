@@ -396,7 +396,7 @@ button.contact-btn{
 	position: absolute;
 	content: '';
 	width: calc(104% - 15px);
-	height: calc(100% - 1px);
+	height: calc(100% - 1.5px);
 	outline: 10px solid var(--secondary-heading);
 	top: 1px;
 	left: 1px;
